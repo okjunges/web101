@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="d4baf606-919e-4215-a6d3-929d0517d655" name="POCS web 101">
+        <fileTransfer accessType="SFTP" host="3.36.196.41" port="22" sshConfigId="f0689d51-65b0-4f1c-876d-b6ab81012e79" sshConfig="ubuntu@3.36.196.41:22 key" keyPair="true">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
