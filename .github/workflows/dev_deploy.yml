@@ -1,4 +1,4 @@
-name: POCS web101 CI/CD
+name: POCS web101 CI/CD # CI/CD 이름 설정
 
 on: # 이벤트 설정
   pull_request:
