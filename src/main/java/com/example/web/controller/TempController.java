@@ -2,7 +2,7 @@ package com.example.web.controller;
 
 import com.example.payload.CommonResponse;
 import com.example.payload.status.SuccessStatus;
-import com.example.service.TempQueryService;
+import com.example.service.temp.TempQueryService;
 import com.example.web.dto.TempResponse;
 import com.example.converter.TempConverter;
 import lombok.RequiredArgsConstructor;

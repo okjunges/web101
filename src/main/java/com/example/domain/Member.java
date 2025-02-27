@@ -11,12 +11,18 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.ColumnDefault;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
+
 import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 
 @Entity
 @Getter
+@DynamicInsert
+@DynamicUpdate
 @Builder
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
@@ -33,8 +39,9 @@ public class Member extends BaseEntity {
     private String address;
     @Column(nullable = false, length = 40)
     private String specAddress;
-    @Column(nullable = false, length = 50)
+    @Column(length = 50)
     private String email;
+    @ColumnDefault("0")
     private Integer point;
     private LocalDate inactiveDate;
 

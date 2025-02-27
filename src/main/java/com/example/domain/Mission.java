@@ -24,7 +24,7 @@ public class Mission extends BaseEntity {
     private Long id;
 
     private Integer point;
-    @Column(nullable = false)
+    //@Column(nullable = false)
     private LocalDateTime deadline;
     @Column(nullable = false, columnDefinition = "TEXT")
     private String body;
