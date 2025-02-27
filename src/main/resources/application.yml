@@ -29,3 +29,17 @@ springdoc:
   cache:
     disabled: true
   use-fqn: true
+
+cloud:
+  aws:
+    s3:
+      bucket: pocs-web101-bucket1
+      path:
+        review: reviews
+    region:
+      static: ap-northeast-2
+    stack:
+      auto: false
+    credentials:
+      accessKey: AKIA4MI2JLUSQ7QK4BHB
+      secretKey: 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

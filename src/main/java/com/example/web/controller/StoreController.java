@@ -23,6 +23,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 @Validated
 @RestController
@@ -33,7 +34,7 @@ public class StoreController {
     private final StoreQueryService storeQueryService;
     private final ReviewCommandService reviewCommandService;
 
-    @PostMapping("/{storeId}/{memberId}/reviews")
+    @PostMapping(value = "/{storeId}/{memberId}/reviews", consumes = "multipart/form-data")
     @Operation(summary = "가게에 리뷰 추가하는 API",
             description = "특정 가게의 리뷰를 추가하는 API이며 path variable로 가게id와 사용자 id가 필요합니다.")
     @ApiResponses(value = {
@@ -50,8 +51,9 @@ public class StoreController {
     public CommonResponse<ReviewResponse.AddReviewResultDto> addReview(
             @ExistsStore @PathVariable(name = "storeId") Long storeId,
             @ExistsMember @PathVariable(name = "memberId") Long memberId,
-            @RequestBody @Valid ReviewRequest.AddReviewDto dto) {
-        Review review = reviewCommandService.addReview(dto, storeId, memberId);
+            @RequestPart MultipartFile reviewImage,
+            @RequestPart @Valid ReviewRequest.AddReviewDto dto) {
+        Review review = reviewCommandService.addReview(dto, storeId, memberId, reviewImage);
         return CommonResponse.onSuccess(ReviewConverter.toAddReviewResultDto(review));
     }
 
